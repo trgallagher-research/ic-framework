@@ -1,0 +1,80 @@
+/* Design tokens. Colours are sampled from the three figures in the framework document.
+   Edit here; every other stylesheet uses these variables. */
+:root {
+  color-scheme: light;
+
+  /* Type: the figures are set in an Arial-like sans */
+  --font: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --leading: 1.5;
+  --weight-heading: 600;
+
+  /* Neutrals */
+  --page: #ffffff;
+  --ink: #333333;
+  --muted: #6b6b6b;
+  --rule: #e2e0d8;
+  --panel: #f3f2ed;          /* outer panel fill in the figures */
+  --panel-border: #c9c7be;   /* outer panel border */
+  --neutral-border: #8a8a80; /* neutral box border (co-creation, intervention) */
+
+  /* Part A, individual capabilities: green */
+  --tone-a-border: #2e7d5b;
+  --tone-a-fill: #e6f4ee;
+  --tone-a-ink: #1f5c43;
+
+  /* Part B, team capabilities: amber */
+  --tone-b-border: #b8862b;
+  --tone-b-fill: #fbf1dd;
+  --tone-b-ink: #7a5410;
+
+  /* Part C, innovation climate: violet */
+  --tone-c-border: #6b5bb5;
+  --tone-c-fill: #ece9fb;
+  --tone-c-ink: #3f3480;
+
+  /* Part D, innovation performance: brick */
+  --tone-d-border: #b5493a;
+  --tone-d-fill: #fbe9e4;
+  --tone-d-ink: #7a2e22;
+
+  /* Skill assessment: blue */
+  --tone-skill-border: #3b6ea8;
+  --tone-skill-fill: #e4eef8;
+  --tone-skill-ink: #24497a;
+
+  /* Neutral box (co-creation) */
+  --tone-neutral-border: #8a8a80;
+  --tone-neutral-fill: #ffffff;
+  --tone-neutral-ink: #333333;
+
+  /* Comparison marks in charts */
+  --mark-you: #333333;       /* the person's own score */
+  --mark-baseline: #8a8a80;  /* IB-wide or other comparison */
+
+  /* Controls */
+  --button-ink: #ffffff;
+  --button-fill: #1f5c43;
+  --button-fill-hover: #2e7d5b;
+  --focus: #3b6ea8;
+
+  /* Shape and space */
+  --radius-panel: 14px;
+  --radius-box: 8px;
+  --border: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 72px;
+  --content-max: 1080px;
+  --reading-max: 680px;
+}

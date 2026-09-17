@@ -1,0 +1,279 @@
+{
+  "responseScale": {
+    "min": 1,
+    "max": 5,
+    "minLabel": "Fully disagree",
+    "maxLabel": "Fully agree"
+  },
+  "sections": [
+    {
+      "scale": "A1",
+      "appendix": "A"
+    },
+    {
+      "scale": "A2",
+      "appendix": "A"
+    },
+    {
+      "scale": "A3",
+      "appendix": "A"
+    },
+    {
+      "scale": "A4",
+      "appendix": "A"
+    },
+    {
+      "scale": "A5",
+      "appendix": "A"
+    },
+    {
+      "scale": "A6",
+      "appendix": "A"
+    },
+    {
+      "scale": "D1",
+      "appendix": "A"
+    },
+    {
+      "scale": "C1",
+      "appendix": "B"
+    },
+    {
+      "scale": "C2",
+      "appendix": "B"
+    },
+    {
+      "scale": "CC",
+      "appendix": "C"
+    },
+    {
+      "scale": "B1",
+      "appendix": "C"
+    },
+    {
+      "scale": "B2",
+      "appendix": "C"
+    },
+    {
+      "scale": "B3",
+      "appendix": "C"
+    }
+  ],
+  "items": [
+    {
+      "id": "A1_1",
+      "scale": "A1",
+      "text": "I try new ways of doing things at work."
+    },
+    {
+      "id": "A1_2",
+      "scale": "A1",
+      "text": "I prefer work that requires original thinking."
+    },
+    {
+      "id": "A1_3",
+      "scale": "A1",
+      "text": "When something does not function well at work, I try to find a new solution."
+    },
+    {
+      "id": "A2_1",
+      "scale": "A2",
+      "text": "I try to get new ideas from colleagues, schools or partners."
+    },
+    {
+      "id": "A2_2",
+      "scale": "A2",
+      "text": "I am interested in how things are done elsewhere in order to use those ideas in my own work."
+    },
+    {
+      "id": "A2_3",
+      "scale": "A2",
+      "text": "I search for other people’s new ideas in order to try to implement the best ones."
+    },
+    {
+      "id": "A3_1",
+      "scale": "A3",
+      "text": "When I have a new idea, I try to persuade my colleagues of it."
+    },
+    {
+      "id": "A3_2",
+      "scale": "A3",
+      "text": "When I have a new idea, I try to get support for it from my manager or leadership."
+    },
+    {
+      "id": "A3_3",
+      "scale": "A3",
+      "text": "I try to show my colleagues the positive sides of new ideas."
+    },
+    {
+      "id": "A3_4",
+      "scale": "A3",
+      "text": "When I have a new idea, I try to involve people who are able to collaborate on it."
+    },
+    {
+      "id": "A4_1",
+      "scale": "A4",
+      "text": "I develop suitable plans and schedules for the implementation of new ideas."
+    },
+    {
+      "id": "A4_2",
+      "scale": "A4",
+      "text": "I look for and secure the resources or budget needed to implement new ideas."
+    },
+    {
+      "id": "A4_3",
+      "scale": "A4",
+      "text": "To implement new ideas, I search for new tools, processes or procedures."
+    },
+    {
+      "id": "A5_1",
+      "scale": "A5",
+      "text": "When problems occur during implementation, I get them into the hands of those who can solve them."
+    },
+    {
+      "id": "A5_2",
+      "scale": "A5",
+      "text": "I try to involve key decision makers in the implementation of an idea."
+    },
+    {
+      "id": "A5_3",
+      "scale": "A5",
+      "text": "When I have a new idea, I look for people who are able to push it through."
+    },
+    {
+      "id": "A6_1",
+      "scale": "A6",
+      "text": "I am able to persistently overcome obstacles when implementing an idea."
+    },
+    {
+      "id": "A6_2",
+      "scale": "A6",
+      "text": "I do not give up even when others say it cannot be done."
+    },
+    {
+      "id": "A6_3",
+      "scale": "A6",
+      "text": "I usually do not finish until I accomplish the goal."
+    },
+    {
+      "id": "A6_4",
+      "scale": "A6",
+      "text": "During idea implementation, I am able to persist even when work is not going well at the moment."
+    },
+    {
+      "id": "D1_1",
+      "scale": "D1",
+      "text": "I have often been successful at work in implementing my ideas and putting them into practice."
+    },
+    {
+      "id": "D1_2",
+      "scale": "D1",
+      "text": "Many things I came up with are used in the IB."
+    },
+    {
+      "id": "D1_3",
+      "scale": "D1",
+      "text": "Wherever I have worked, I improved something there."
+    },
+    {
+      "id": "C1_1",
+      "scale": "C1",
+      "text": "My manager motivates me to come to them with new ideas."
+    },
+    {
+      "id": "C1_2",
+      "scale": "C1",
+      "text": "My manager makes sure good ideas are recognised."
+    },
+    {
+      "id": "C1_3",
+      "scale": "C1",
+      "text": "My manager supports me in implementing good ideas as soon as possible."
+    },
+    {
+      "id": "C1_4",
+      "scale": "C1",
+      "text": "My manager is tolerant of mistakes and errors during the implementation of something new."
+    },
+    {
+      "id": "C1_5",
+      "scale": "C1",
+      "text": "My manager is able to obtain support for my proposals outside our department."
+    },
+    {
+      "id": "C2_1",
+      "scale": "C2",
+      "text": "The way people are recognised in the IB motivates them to suggest new things and procedures."
+    },
+    {
+      "id": "C2_2",
+      "scale": "C2",
+      "text": "The IB has set aside sufficient resources to support the implementation of new ideas."
+    },
+    {
+      "id": "C2_3",
+      "scale": "C2",
+      "text": "The IB provides people with time for putting ideas and innovations into practice."
+    },
+    {
+      "id": "CC_1",
+      "scale": "CC",
+      "text": "I develop new ideas together with the people who will use them."
+    },
+    {
+      "id": "CC_2",
+      "scale": "CC",
+      "text": "I change my ideas in response to feedback from the people they affect."
+    },
+    {
+      "id": "CC_3",
+      "scale": "CC",
+      "text": "I test ideas with others before I am sure they will work."
+    },
+    {
+      "id": "B1_1",
+      "scale": "B1",
+      "text": "In my team, people put forward views that go against the majority."
+    },
+    {
+      "id": "B1_2",
+      "scale": "B1",
+      "text": "In my team, we argue about ideas without it becoming personal."
+    },
+    {
+      "id": "B1_3",
+      "scale": "B1",
+      "text": "In my team, we hear an idea out before judging it."
+    },
+    {
+      "id": "B2_1",
+      "scale": "B2",
+      "text": "In my team, we try small versions of ideas before planning them in full."
+    },
+    {
+      "id": "B2_2",
+      "scale": "B2",
+      "text": "In my team, we change course when something we tried does not work."
+    },
+    {
+      "id": "B2_3",
+      "scale": "B2",
+      "text": "In my team, we learn more from what we build than from what we discuss."
+    },
+    {
+      "id": "B3_1",
+      "scale": "B3",
+      "text": "When my team disagrees, we look for an option that takes something from each side."
+    },
+    {
+      "id": "B3_2",
+      "scale": "B3",
+      "text": "In my team, decisions are made without one person’s view simply winning."
+    },
+    {
+      "id": "B3_3",
+      "scale": "B3",
+      "text": "My team can agree a way forward while people still disagree."
+    }
+  ]
+}

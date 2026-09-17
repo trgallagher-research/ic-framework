@@ -1,0 +1,750 @@
+/* Results dashboards: tab frame, employee / manager / organisation screens,
+   and the small chart components in js/charts.js.
+   Depends on assets/css/tokens.css and assets/css/site.css (loaded first);
+   reuses .panel, .box, .tone-*, .muted, .small, .lead, .stack, .cluster,
+   .grid-2, .grid-3, .btn*, .actions from site.css. */
+
+/* Section rhythm: generous, 48px between sections, 32px on mobile ------------------------- */
+
+.results-page {
+  padding: var(--space-6) 0 var(--space-8);
+}
+
+.results-page > .results-section,
+.results-page > .grid-2,
+.results-page > .panel {
+  margin-top: var(--space-7);
+}
+
+.results-page > h1 {
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  .results-page > .results-section,
+  .results-page > .grid-2,
+  .results-page > .panel {
+    margin-top: var(--space-6);
+  }
+}
+
+.results-subsection {
+  margin-top: var(--space-6);
+}
+
+.results-subsection:first-child {
+  margin-top: var(--space-4);
+}
+
+.results-section-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.results-section-head h2 {
+  margin-bottom: 0;
+}
+
+.mock-tag {
+  white-space: nowrap;
+}
+
+/* Tab bar ---------------------------------------------------------------------------------- */
+
+.results-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--rule);
+  /* main already has 32px top padding (site.css, fixed at every width); this
+     only needs to make up the difference to land the tabs ~24px under the
+     header. */
+  margin-top: -8px;
+}
+
+.results-tab {
+  flex: 1 1 0;
+  text-align: center;
+  text-decoration: none;
+  color: var(--muted);
+  padding: var(--space-3) var(--space-2) var(--space-4);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+}
+
+.results-tab-label {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.results-tab:not(.active) .results-tab-label {
+  color: var(--muted);
+}
+
+.results-tab-hint {
+  display: block;
+  margin-top: 2px;
+}
+
+.results-tab.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+/* Sample-data notice ------------------------------------------------------------------------- */
+
+.sample-panel {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.sample-panel p {
+  margin: 0;
+}
+
+.sample-panel .actions {
+  gap: var(--space-4);
+}
+
+.results-tab-body {
+  padding-bottom: var(--space-2);
+}
+
+/* Mock banner (manager / organisation) ------------------------------------------------------- */
+
+.mock-banner p {
+  margin: 0;
+  max-width: none;
+}
+
+.mock-banner-label {
+  font-weight: 600;
+}
+
+.mock-banner-text {
+  margin-top: 4px !important;
+}
+
+.mock-banner + h1 {
+  margin-top: var(--space-6);
+}
+
+/* Employee: strongest / develop callouts ------------------------------------------------------ */
+
+.results-callouts {
+  align-items: stretch;
+}
+
+.results-callout {
+  text-align: left;
+}
+
+.results-callout p {
+  max-width: none;
+}
+
+.box-title {
+  font-size: var(--text-lg);
+  margin: 0 0 var(--space-2);
+}
+
+/* Manager: practices list -------------------------------------------------------------------- */
+
+.results-skill-list {
+  text-align: left;
+  list-style: disc;
+  margin: 0;
+  padding: 14px 12px 14px 30px;
+}
+
+.results-skill-list li + li {
+  margin-top: var(--space-1);
+}
+
+/* Chart: comparison rows / single-value rows ------------------------------------------------- */
+
+.chart-comparison,
+.chart-rows-single {
+  margin-top: var(--space-4);
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.chart-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--mark-you);
+}
+
+.chart-swatch-fill {
+  background: var(--mark-you);
+}
+
+.chart-swatch-tick {
+  background: var(--mark-baseline);
+  width: 3px;
+}
+
+.chart-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 7rem;
+  column-gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--rule);
+}
+
+.chart-rows > .chart-row:first-child {
+  border-top: none;
+}
+
+.chart-row-single {
+  grid-template-columns: 14rem 1fr 4rem;
+}
+
+.chart-row-label-text {
+  font-weight: 600;
+}
+
+.chart-row-explain {
+  margin-top: 2px;
+}
+
+.chart-row-track {
+  position: relative;
+}
+
+.chart-track {
+  position: relative;
+  padding: 5px 0;
+}
+
+.chart-track-base {
+  position: relative;
+  height: 14px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.chart-track-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: var(--tone-border, var(--mark-you));
+  border-radius: 4px 0 0 4px;
+}
+
+.chart-track-fill.tone-a { background: var(--tone-a-border); }
+.chart-track-fill.tone-b { background: var(--tone-b-border); }
+.chart-track-fill.tone-c { background: var(--tone-c-border); }
+.chart-track-fill.tone-d { background: var(--tone-d-border); }
+.chart-track-fill.tone-skill { background: var(--tone-skill-border); }
+.chart-track-fill.tone-neutral { background: var(--tone-neutral-border); }
+
+.chart-track-tick {
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  width: 3px;
+  margin-left: -1.5px;
+  background: var(--mark-baseline);
+  border-radius: 2px;
+}
+
+.chart-ticklabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.chart-row-values {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  text-align: right;
+}
+
+.chart-value-main {
+  font-weight: 600;
+  font-size: var(--text-md);
+}
+
+@media (max-width: 700px) {
+  .chart-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "label label" "track values";
+    row-gap: var(--space-2);
+    align-items: start;
+  }
+  .chart-row-label { grid-area: label; }
+  .chart-row-track { grid-area: track; }
+  .chart-row-values { grid-area: values; justify-self: end; align-items: flex-end; }
+}
+
+/* Chart: slope chart (the only remaining inline-SVG chart) ------------------------------------- */
+
+.results-section svg,
+.results-subsection svg {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin-top: var(--space-2);
+}
+
+/* SVG font sizes are in viewBox units (440 wide). At the 640px cap that is x1.45,
+   so 9 renders at 13px; at 375px wide the scale is about 0.78, so 16 renders at 12.5px. */
+.chart-slope-axis-label {
+  font-size: 9px;
+}
+
+.chart-slope-mean-label {
+  font-size: 10px;
+}
+
+@media (max-width: 600px) {
+  .chart-slope-axis-label {
+    font-size: 16px;
+  }
+  .chart-slope-mean-label {
+    font-size: 18px;
+  }
+}
+
+/* Chart: dot strip / duration strip (plain HTML/CSS, full column width) ----------------------- */
+
+.dot-strip {
+  margin-top: var(--space-3);
+}
+
+.dot-strip-plot {
+  position: relative;
+  height: 84px;
+  margin-top: 46px;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.duration-strip-plot {
+  margin-top: 26px;
+}
+
+.dot-strip-dot {
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--mark-baseline);
+  opacity: 0.5;
+  transform: translate(-50%, -50%);
+}
+
+.dot-strip-dot.highlight {
+  width: 15px;
+  height: 15px;
+  opacity: 1;
+  background: var(--tone-c-border);
+  z-index: 2;
+}
+
+.duration-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--tone-d-border);
+  opacity: 0.55;
+}
+
+.dot-strip-ib-line,
+.dot-strip-median-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--mark-baseline);
+}
+
+.dot-strip-median-line {
+  background: var(--tone-d-border);
+}
+
+.dot-strip-ib-label,
+.dot-strip-median-label {
+  position: absolute;
+  top: -22px;
+  left: 0;
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+  background: var(--page);
+  padding: 0 3px;
+}
+
+.dot-strip-median-label {
+  color: var(--tone-d-ink);
+}
+
+.dot-strip-ib-label.is-start,
+.dot-strip-median-label.is-start {
+  transform: translateX(0);
+}
+
+.dot-strip-ib-label.is-end,
+.dot-strip-median-label.is-end {
+  transform: translateX(-100%);
+}
+
+.dot-strip-highlight-label {
+  position: absolute;
+  top: -40px;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--tone-c-ink);
+  background: var(--page);
+  border: 1px solid var(--tone-c-border);
+  border-radius: 3px;
+  padding: 1px 5px;
+  white-space: nowrap;
+  z-index: 3;
+}
+
+.dot-strip-highlight-label.is-start {
+  transform: translateX(0);
+}
+
+.dot-strip-highlight-label.is-end {
+  transform: translateX(-100%);
+}
+
+.dot-strip-axis {
+  position: relative;
+  height: 16px;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.dot-strip-axis span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.dot-strip-axis span:first-child {
+  transform: translateX(0);
+}
+
+.dot-strip-axis span:last-child {
+  transform: translateX(-100%);
+}
+
+/* Chart: stacked bar -------------------------------------------------------------------------- */
+
+.stacked-bar-wrap {
+  margin-top: var(--space-3);
+}
+
+.stacked-bar {
+  display: flex;
+  height: 28px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--panel-border);
+}
+
+.stacked-bar-seg + .stacked-bar-seg {
+  border-left: 1px solid var(--page);
+}
+
+.stacked-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.chart-subhead {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+/* KPI tiles ------------------------------------------------------------------------------------ */
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 700px) {
+  .kpi-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.kpi-tile {
+  text-align: left;
+}
+
+.kpi-number {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Heat table ------------------------------------------------------------------------------------ */
+
+.table-scroll {
+  overflow-x: auto;
+  margin-top: var(--space-3);
+}
+
+.heat-table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: auto;
+  font-size: var(--text-sm);
+}
+
+.heat-table .col-name { width: 170px; }
+.heat-table .col-n { width: 44px; }
+.heat-table .col-narrow { width: 44px; }
+.heat-table .col-wide { width: 96px; }
+
+.heat-table th,
+.heat-table td {
+  padding: 5px 4px;
+  text-align: center;
+}
+
+.heat-table thead th {
+  border-bottom: 1px solid var(--panel-border);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.heat-table tbody tr {
+  border-bottom: 1px solid var(--rule);
+}
+
+.heat-table .sticky-col {
+  position: sticky;
+  left: 0;
+  background: var(--page);
+  text-align: left;
+  white-space: normal;
+  padding-left: 10px;
+}
+
+.heat-row-ib {
+  background: var(--panel);
+}
+
+.heat-row-ib .sticky-col {
+  background: var(--panel);
+}
+
+.heat-value {
+  font-variant-numeric: tabular-nums;
+}
+
+.heat-gap {
+  font-variant-numeric: tabular-nums;
+  margin-top: 1px;
+  color: var(--ink);
+}
+
+.heat-suppressed {
+  color: var(--muted);
+}
+
+.heat-n-inline {
+  display: none;
+}
+
+.heat-scroll-hint {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .heat-table .col-name { width: 120px; }
+  .heat-table .col-n { display: none; }
+  .heat-n-col { display: none; }
+  .heat-n-inline { display: block; }
+  .heat-scroll-hint { display: block; margin-top: var(--space-2); }
+}
+
+.heat-pos-1 { background: var(--tone-a-fill); }
+.heat-pos-2 { background: color-mix(in srgb, var(--tone-a-border) 32%, var(--tone-a-fill)); }
+.heat-pos-3 { background: color-mix(in srgb, var(--tone-a-border) 55%, var(--tone-a-fill)); }
+.heat-neg-1 { background: var(--tone-d-fill); }
+.heat-neg-2 { background: color-mix(in srgb, var(--tone-d-border) 28%, var(--tone-d-fill)); }
+.heat-neg-3 { background: color-mix(in srgb, var(--tone-d-border) 48%, var(--tone-d-fill)); }
+
+/* Outputs table / cards --------------------------------------------------------------------- */
+
+.outputs-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: var(--space-3);
+}
+
+.outputs-table th,
+.outputs-table td {
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+}
+
+.outputs-table th {
+  font-weight: 600;
+}
+
+.output-title {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.outputs-table td.nowrap,
+.outputs-table th.nowrap {
+  white-space: nowrap;
+}
+
+.output-cards {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .outputs-table { display: none; }
+  .output-cards {
+    display: block;
+    margin-top: var(--space-3);
+  }
+  .output-card {
+    text-align: left;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .output-cards .output-card:first-child { padding-top: 0; }
+  .output-cards .output-card:last-child { border-bottom: none; }
+  .output-card > * + * { margin-top: 4px; }
+  .output-card-tag { color: var(--ink); }
+}
+
+/* Pipeline (details) ------------------------------------------------------------------------- */
+
+.results-details {
+  margin-top: var(--space-4);
+}
+
+.results-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: var(--space-2) 0;
+}
+
+.pipeline-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 640px;
+  font-size: var(--text-sm);
+}
+
+.pipeline-table th,
+.pipeline-table td {
+  padding: 6px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+
+.pipeline-table th {
+  font-weight: 600;
+}
+
+.pipeline-table td:first-child,
+.pipeline-table td:nth-child(2) {
+  white-space: normal;
+}
+
+/* Skills workshop ------------------------------------------------------------------------------ */
+
+.skills-chart-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.skills-chart {
+  width: 100%;
+}
+
+.skills-side {
+  display: inline-block;
+  width: auto;
+  text-align: left;
+  font-weight: 600;
+}
+
+.results-figure {
+  margin: var(--space-5) 0 0;
+}
+
+.results-figure img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+}
+
+.results-figure figcaption {
+  margin-top: var(--space-2);
+}
+
+/* The first block on a results page sits directly under the page padding. */
+.results-page > :first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  .pipeline-table td:first-child,
+  .pipeline-table td:nth-child(2) {
+    white-space: nowrap;
+  }
+}
+
+.skills-chart-row {
+  margin-bottom: var(--space-4);
+}
